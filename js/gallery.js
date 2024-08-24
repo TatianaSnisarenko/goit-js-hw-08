@@ -66,6 +66,7 @@ const images = [
 
 const gallery = document.querySelector('.gallery');
 const fragment = document.createDocumentFragment();
+let currentImgIndex;
 
 images.forEach((image, index) => {
   const li = document.createElement('li');
@@ -120,7 +121,8 @@ function makeLightbox(instance, url, caption, index) {
   elem.appendChild(lightboxHtml(url, caption, index));
   instance.show();
   addCloseEventListener(instance);
-  addArrowEventListener(instance, index);
+  currentImgIndex = index;
+  addArrowEventListener(instance);
 }
 
 function addCloseEventListener(instance) {
@@ -131,17 +133,17 @@ function addCloseEventListener(instance) {
   });
 }
 
-function addArrowEventListener(instance, currentIndex) {
+function addArrowEventListener(instance) {
   const elem = instance.element();
   const prevButton = elem.querySelector('.gallery-arrow-prev');
   const nextButton = elem.querySelector('.gallery-arrow-next');
 
   prevButton.addEventListener('click', () =>
-    handleArrowClick(instance, currentIndex, -1)
+    handleArrowClick(instance, currentImgIndex, -1)
   );
 
   nextButton.addEventListener('click', () =>
-    handleArrowClick(instance, currentIndex, 1)
+    handleArrowClick(instance, currentImgIndex, 1)
   );
 }
 
@@ -188,8 +190,7 @@ function updateLightbox(instance, url, caption, index, directionIndex) {
     },
     { once: true }
   );
-
-  addArrowEventListener(instance, index);
+  currentImgIndex = index;
 }
 
 function lightboxHtml(imgUrl, imgcaption, index) {
