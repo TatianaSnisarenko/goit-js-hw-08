@@ -212,7 +212,7 @@ function lightboxHtml(imgUrl, imgcaption, index) {
   closeUse.setAttributeNS(
     'http://www.w3.org/1999/xlink',
     'href',
-    '../images/icons.svg#icon-close'
+    './images/icons.svg#icon-close'
   );
   closeSvg.appendChild(closeUse);
   closeButton.appendChild(closeSvg);
@@ -227,7 +227,7 @@ function lightboxHtml(imgUrl, imgcaption, index) {
   prevUse.setAttributeNS(
     'http://www.w3.org/1999/xlink',
     'href',
-    '../images/icons.svg#icon-arrow-left'
+    './images/icons.svg#icon-arrow-left'
   );
   prevSvg.appendChild(prevUse);
   prevButton.appendChild(prevSvg);
@@ -254,7 +254,7 @@ function lightboxHtml(imgUrl, imgcaption, index) {
   nextUse.setAttributeNS(
     'http://www.w3.org/1999/xlink',
     'href',
-    '../images/icons.svg#icon-arrow-right'
+    './images/icons.svg#icon-arrow-right'
   );
   nextSvg.appendChild(nextUse);
   nextButton.appendChild(nextSvg);
